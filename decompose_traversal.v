@@ -19,6 +19,8 @@ Require Vector.
 Require Import Arith List Eqdep_dec.
 Require Import FunctionalExtensionality.
 
+Set Asymmetric Patterns.
+
 Set Implicit Arguments.
 Unset Strict Implicit.
 
