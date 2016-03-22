@@ -1017,7 +1017,7 @@ repeat (repeat rewrite homomorphism_law; repeat rewrite <- composition_law; unfo
 rewrite interchange_law.
 repeat (repeat rewrite homomorphism_law; repeat rewrite <- composition_law; unfold map).
 repeat f_equal.
-apply functional_extensionality; intros v1.
+apply functional_extensionality_dep; intros v1.
 apply functional_extensionality; intros v2.
 rewrite append_view_append.
 reflexivity.
