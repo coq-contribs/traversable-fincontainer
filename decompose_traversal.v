@@ -481,13 +481,13 @@ Record Applicative := applicative
  ; pure : forall a, a -> carrier a
  ; ap : forall a b, carrier (a -> b) -> carrier a -> carrier b
  ; map := fun a b (f : a -> b) x => ap (pure f) x
- ; _ : forall (a : Type) x, map _ _ (fun (y : a) => y) x = x
+ ; _ : forall (a : Type) x, map (fun (y : a) => y) x = x
  ; _ : forall a b c x y z,
-    ap (ap (map _ _ (fun (f : b -> c) (g : a -> b) (w:a) => f (g w)) x) y) z =
+    ap (ap (map (fun (f : b -> c) (g : a -> b) (w:a) => f (g w)) x) y) z =
     ap x (ap y z)
- ; _ : forall a b (f : a -> b) x, map _ _ f (pure x) = pure (f x)
+ ; _ : forall a b (f : a -> b) x, map f (pure x) = pure (f x)
  ; _ : forall a b (f : carrier (a -> b)) x, 
-    ap f (pure x) = map _ _ (fun g => g x) f
+    ap f (pure x) = map (fun g => g x) f
  }.
 
 Fixpoint sequenceVector n a (F:Applicative) (v: Vector.t (F a) n) : F (Vector.t a n) :=
